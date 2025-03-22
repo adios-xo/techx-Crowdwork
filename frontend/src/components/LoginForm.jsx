@@ -1,9 +1,16 @@
 import React from 'react'
 import axios from 'axios';
+import { useNavigate } from "react-router";
 import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 
 
-const LoginForm = ({ title, placeholder }) => {
+const LoginForm = ({ title, placeholder, activeTab }) => {
+    const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState("");
+
     const {
         register,
         handleSubmit,
@@ -12,7 +19,8 @@ const LoginForm = ({ title, placeholder }) => {
 
     const handleLogin = async (data) => {
         try {
-            const response = await axios.post("http://localhost:8080/v1/login", data);
+            const finalData = { ...data, role: activeTab }
+            const response = await axios.post("http://localhost:8080/v1/login", finalData);
             let curToken = response.data.token;
             localStorage.setItem('userToken', curToken);
             navigate('/home', { replace: true });
