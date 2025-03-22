@@ -18,11 +18,8 @@ const Home = () => {
             <div>
                 <IssuesList />
             </div>
-        </>
-        <div>
-            home
             <CreateIssueButton />
-        </div>
+        </>
     )
 }
 
