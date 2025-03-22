@@ -75,6 +75,46 @@ const updateStat = async (req, res) => {
   }
 };
 
+const getActiveIssue = async (req, res) => {
+  try {
+    const activeIssues = await issueModel.find({ status: "Active" });
+
+    if (activeIssues.length === 0) {
+      return res.status(404).json({ error: "No active issues found" });
+    }
+
+    res.json(activeIssues);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching active issues" });
+  }
+};
+const getCompletedIssue = async (req, res) => {
+  try {
+    const activeIssues = await issueModel.find({ status: "Completed" });
+
+    if (activeIssues.length === 0) {
+      return res.status(404).json({ error: "No Completed issues found" });
+    }
+
+    res.json(activeIssues);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching active issues" });
+  }
+};
+const getUnderIssue = async (req, res) => {
+  try {
+    const activeIssues = await issueModel.find({ status: "Under Review" });
+
+    if (activeIssues.length === 0) {
+      return res.status(404).json({ error: "No Under Review issues found" });
+    }
+
+    res.json(activeIssues);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching active issues" });
+  }
+};
+
 module.exports = {
   issuePostController,
   getAllIssues,
@@ -82,4 +122,7 @@ module.exports = {
   issueActive,
   getIssuesById,
   updateStat,
+  getActiveIssue,
+  getCompletedIssue,
+  getUnderIssue,
 };
