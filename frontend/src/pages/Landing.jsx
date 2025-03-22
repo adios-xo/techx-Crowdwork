@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from "react";
+import { UserPlus } from "lucide-react";
+import { Link } from "react-router";
 
 import Card from "../components/Card";
 
@@ -107,6 +109,20 @@ const CommunityProjects = () => {
                 {CardLists.map((card) => (
                     <Card key={card.id} title={card.title} desc={card.desc} imgSRC={card.imgSRC} />
                 ))}
+            </div>
+
+            <div className="bg-gray-300 w-full mt-8 py-6 items-center">
+                <h1 className="font-bold text-2xl mb-6">
+                    Sign Up as a Volunteer? Register now!!
+                </h1>
+
+                <Link
+                    to={"/register"}
+                    className="flex items-center w-32 mx-auto px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer"
+                    onClick={() => { }}
+                >
+                    <UserPlus size={16} className="mr-2" /> Sign up
+                </Link>
             </div>
         </div>
     );
