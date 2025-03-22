@@ -95,5 +95,38 @@ const currentUserController = async (req, res) => {
     });
   }
 };
+const updateUser = async (req, res) => {
+  const id = req.body.userId;
+  const { password, pin, location } = req.body;
+  console.log(id);
+  try {
+    const updatedUser = await userModel.findByIdAndUpdate(id, {
+      password,
+      pin,
+      location,
+    });
 
-module.exports = { registerController, loginController, currentUserController };
+    if (!updatedUser) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    return res.json({
+      success: true,
+      message: "User details updated!",
+      user: updatedUser,
+    });
+  } catch (error) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Error updating user", error: error });
+  }
+};
+
+module.exports = {
+  registerController,
+  loginController,
+  currentUserController,
+  updateUser,
+};
