@@ -4,6 +4,7 @@ import ProtectedRoute from "./ProtectedRoute";
 import Landing from "../pages/Landing";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import CreateIssue from "../pages/CreateIssue";
 
 // Lazy-loaded components for better performance
 const Login = lazy(() => import("../pages/forms/Login"));
@@ -37,6 +38,11 @@ const AppRoutes = () => {
                     <Route path="/home" element={<ProtectedRoute>
                         <Navbar />
                         <Home />
+                    </ProtectedRoute>} />
+
+                    <Route path="/createIssue" element={<ProtectedRoute>
+                        <Navbar />
+                        <CreateIssue />
                     </ProtectedRoute>} />
 
                     <Route path="/user" element={<ProtectedRoute>

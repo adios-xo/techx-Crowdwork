@@ -1,6 +1,8 @@
 import React from 'react'
 import IssuesList from '../components/IssuesList'
 
+import CreateIssueButton from '../components/CreateIssueButton'
+
 const Home = () => {
     return (
         <>
@@ -16,6 +18,7 @@ const Home = () => {
             <div>
                 <IssuesList />
             </div>
+            <CreateIssueButton />
         </>
     )
 }
