@@ -35,6 +35,7 @@ const AppRoutes = () => {
                     } />
                     {/* Protected Routes */}
                     <Route path="/home" element={<ProtectedRoute>
+                        <Navbar />
                         <Home />
                     </ProtectedRoute>} />
 

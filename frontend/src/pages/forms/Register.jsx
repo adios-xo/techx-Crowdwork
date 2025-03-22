@@ -68,7 +68,7 @@ const Register = () => {
             </nav>
 
             <div className="flex flex-col items-center justify-center p-6">
-                <h1 className="text-3xl font-bold">Welcome Back</h1>
+                <h1 className="text-3xl font-bold">Welcome</h1>
                 <p className="text-gray-500">Log in to your account to continue</p>
 
                 <div className="flex mt-6 space-x-4 border-b">
