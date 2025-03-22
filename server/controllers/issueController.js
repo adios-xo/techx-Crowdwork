@@ -42,13 +42,8 @@ const getIssuesById = async (req, res) => {
 };
 const issueActive = async (req, res) => {
   try {
-    const id = req.params;
-    const status = req.body;
+    const { status, id } = req.body;
     console.log(id);
-    // Validate MongoDB ObjectId
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ error: "Invalid issue ID" });
-    }
 
     const issue = await issueModel.findByIdAndUpdate(
       id,
@@ -63,6 +58,22 @@ const issueActive = async (req, res) => {
     res.status(500).json({ error: "Error updating issue status" });
   }
 };
+const updateStat = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const user = await issueModel.findByIdAndUpdate(id, status, { new: true });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "User updated", user });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
 
 module.exports = {
   issuePostController,
@@ -70,4 +81,5 @@ module.exports = {
   getUserIssue,
   issueActive,
   getIssuesById,
+  updateStat,
 };
