@@ -34,7 +34,8 @@ const userSchema = new mongoose.Schema(
       unique: true,
     },
     skills: {
-      type: String,
+      type: [String],
+      default: [],
       require: function () {
         if (this.role === "Volunteer") {
           return true;
