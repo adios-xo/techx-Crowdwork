@@ -1,8 +1,13 @@
 import React from 'react'
 
+import CreateIssueButton from '../components/CreateIssueButton'
+
 const Home = () => {
     return (
-        <div>Home</div>
+        <div>
+            home
+            <CreateIssueButton />
+        </div>
     )
 }
 
