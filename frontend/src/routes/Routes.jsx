@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Landing from "../pages/Landing";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 // Lazy-loaded components for better performance
 const Login = lazy(() => import("../pages/forms/Login"));
@@ -19,6 +20,7 @@ const AppRoutes = () => {
                         <>
                             <Navbar />
                             <Landing />
+                            <Footer />
                         </>
                     } />
                     <Route path="/login" element={
