@@ -67,7 +67,7 @@ const CommunityProjects = () => {
   return (
     <div className="flex flex-col items-center justify-center text-center p-10">
       {/* Header section with title and description */}
-      <h1 className="text-4xl font-bold mb-4">
+      <h1 className="text-5xl font-bold mb-4">
         Make a difference in your community
       </h1>
       <p className="text-gray-500 mb-6 max-w-lg">
@@ -104,15 +104,15 @@ const CommunityProjects = () => {
       <div className="flex items-center justify-center mt-20 text-xl p-10">
         {/* Left section: Step-by-step instructions */}
         <div className="w-1/2">
-          <h2 className="text-2xl font-bold mb-4">How it works</h2>
-          <div className="space-y-4">
+        <h2 class="text-3xl font-bold tracking-tight mb-6">How it works</h2>
+          <div className="space-y-6">
             {/* Step 1: Find a project */}
             <div className="flex items-start gap-3">
               <div className="w-8 h-8 bg-black text-white flex items-center justify-center rounded-full font-bold">
                 1
               </div>
               <div>
-                <h3 className="font-bold">Find a project</h3>
+                <h3 className="font-bold mb-1">Find a project</h3>
                 <p className="text-gray-500">
                   Browse through hundreds of local projects that need your help.
                 </p>
