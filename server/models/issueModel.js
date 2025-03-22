@@ -10,6 +10,12 @@ const issueSchema = new mongoose.Schema(
       type: String,
       require: [true, "Title is required"],
     },
+    status: {
+      type: String,
+      require: [true, "status is required"],
+      default: "Under Review",
+      enum: ["Under Review", "Active", "Completed"],
+    },
 
     desc: {
       type: String,

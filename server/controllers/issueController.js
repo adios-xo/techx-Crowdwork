@@ -28,5 +28,46 @@ const getAllIssues = async (req, res) => {
     res.status(500).json({ message: "Server error", error });
   }
 };
+const getIssuesById = async (req, res) => {
+  try {
+    const { id } = req.body;
 
-module.exports = { issuePostController, getAllIssues, getUserIssue };
+    const issue = await issueModel.findById(id);
+    if (!issue) return res.status(404).json({ error: "Issue not found" });
+
+    res.json(issue);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching issue" });
+  }
+};
+const issueActive = async (req, res) => {
+  try {
+    const id = req.params;
+    const status = req.body;
+    console.log(id);
+    // Validate MongoDB ObjectId
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: "Invalid issue ID" });
+    }
+
+    const issue = await issueModel.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+
+    if (!issue) return res.status(404).json({ error: "Issue not found" });
+
+    res.json(issue);
+  } catch (error) {
+    res.status(500).json({ error: "Error updating issue status" });
+  }
+};
+
+module.exports = {
+  issuePostController,
+  getAllIssues,
+  getUserIssue,
+  issueActive,
+  getIssuesById,
+};
