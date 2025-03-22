@@ -1,11 +1,12 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModel");
+
 const registerController = async (req, res) => {
   try {
     const existingUser = await userModel.findOne({ email: req.body.email });
     if (existingUser) {
-      return res.ststus(200).send({
+      return res.status(200).send({
         success: false,
         message: "User already existes",
       });
@@ -18,6 +19,7 @@ const registerController = async (req, res) => {
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
       expiresIn: "1d",
     });
+
     return res.status(201).send({
       success: true,
       message: "User Registered successfully",

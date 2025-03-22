@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/v1", require("./router/authRouter"));
+app.use("/v1", require("./router/issueRouter"));
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
