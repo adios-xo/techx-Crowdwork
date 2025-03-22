@@ -45,7 +45,7 @@ const LoginForm = ({ title, placeholder }) => {
                     <label htmlFor="remember" className="text-sm">Remember me</label>
                 </div>
 
-                <button className="w-full bg-black text-white p-2 mt-4 rounded">Log In</button>
+                <button type='submit' className="w-full bg-black text-white p-2 mt-4 rounded">Log In</button>
             </form>
         </div>
     )

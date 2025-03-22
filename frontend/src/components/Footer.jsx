@@ -4,7 +4,7 @@ import { Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="border-t">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-4 pt-12 pb-5">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand Column */}
           <div>
@@ -49,7 +49,7 @@ export default function Footer() {
 
         {/* Bottom Section with Copyright and Social Icons */}
         <div className="flex flex-col sm:flex-row justify-between items-center mt-12 pt-8 border-t">
-          <p className="text-sm text-muted-foreground mb-4 sm:mb-0">
+          <p className="text-sm text-muted-foreground sm:mb-0">
             © {new Date().getFullYear()} CommunityForce. All rights reserved.
           </p>
           <div className="flex space-x-4">
