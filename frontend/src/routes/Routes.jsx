@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import Landing from "../pages/Landing";
+import Navbar from "../components/Navbar";
 
 // Lazy-loaded components for better performance
 const Login = lazy(() => import("../pages/forms/Login"));
@@ -16,6 +17,7 @@ const AppRoutes = () => {
                 <Routes>
                     <Route path="/" element={
                         <>
+                            <Navbar />
                             <Landing />
                         </>
                     } />
