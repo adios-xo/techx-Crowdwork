@@ -1,7 +1,14 @@
 import { LogIn, UserPlus } from "lucide-react";
 import { Link, useNavigate } from "react-router";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
+    const [userToken, setUserToken] = useState("");
+
+    useEffect(() => {
+        setUserToken(localStorage.getItem("userToken"));
+    }, []);
+
     return (
         <nav className="flex justify-between items-center p-4 border-b shadow-sm">
             <div className="text-xl font-bold">
@@ -14,20 +21,29 @@ const Navbar = () => {
                 <a href="#" className="text-black hover:underline">Impact</a>
             </div>
             <div className="flex space-x-4">
-                <Link
-                    to={"/login"}
-                    className="flex items-center px-4 py-2 border rounded-md hover:bg-gray-100 hover:cursor-pointer"
-                    onClick={() => { }}
-                >
-                    <LogIn size={16} className="mr-2" /> Log in
-                </Link>
-                <Link
-                    to={"/register"}
-                    className="flex items-center px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer"
-                    onClick={() => { }}
-                >
-                    <UserPlus size={16} className="mr-2" /> Sign up
-                </Link>
+                {!userToken ?
+                    <>
+                        <Link
+                            to={"/login"}
+                            className="flex items-center px-4 py-2 border rounded-md hover:bg-gray-100 hover:cursor-pointer"
+                        >
+                            <LogIn size={16} className="mr-2" /> Log in
+                        </Link>
+                        <Link
+                            to={"/register"}
+                            className="flex items-center px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer"
+                        >
+                            <UserPlus size={16} className="mr-2" /> Sign up
+                        </Link>
+                    </>
+                    : <>
+                        <Link
+                            to={"/profile"}
+                            className="flex items-center px-4 py-2 bg-black text-white rounded-md hover:cursor-pointer"
+                        >
+                            <UserPlus size={16} className="mr-2" /> Profile
+                        </Link>
+                    </>}
             </div>
         </nav>
     );

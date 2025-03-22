@@ -42,13 +42,8 @@ const getIssuesById = async (req, res) => {
 };
 const issueActive = async (req, res) => {
   try {
-    const id = req.params;
-    const status = req.body;
+    const { status, id } = req.body;
     console.log(id);
-    // Validate MongoDB ObjectId
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return res.status(400).json({ error: "Invalid issue ID" });
-    }
 
     const issue = await issueModel.findByIdAndUpdate(
       id,
@@ -63,6 +58,62 @@ const issueActive = async (req, res) => {
     res.status(500).json({ error: "Error updating issue status" });
   }
 };
+const updateStat = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status } = req.body;
+
+    const user = await issueModel.findByIdAndUpdate(id, status, { new: true });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ message: "User updated", user });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+const getActiveIssue = async (req, res) => {
+  try {
+    const activeIssues = await issueModel.find({ status: "Active" });
+
+    if (activeIssues.length === 0) {
+      return res.status(404).json({ error: "No active issues found" });
+    }
+
+    res.json(activeIssues);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching active issues" });
+  }
+};
+const getCompletedIssue = async (req, res) => {
+  try {
+    const activeIssues = await issueModel.find({ status: "Completed" });
+
+    if (activeIssues.length === 0) {
+      return res.status(404).json({ error: "No Completed issues found" });
+    }
+
+    res.json(activeIssues);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching active issues" });
+  }
+};
+const getUnderIssue = async (req, res) => {
+  try {
+    const activeIssues = await issueModel.find({ status: "Under Review" });
+
+    if (activeIssues.length === 0) {
+      return res.status(404).json({ error: "No Under Review issues found" });
+    }
+
+    res.json(activeIssues);
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching active issues" });
+  }
+};
 
 module.exports = {
   issuePostController,
@@ -70,4 +121,8 @@ module.exports = {
   getUserIssue,
   issueActive,
   getIssuesById,
+  updateStat,
+  getActiveIssue,
+  getCompletedIssue,
+  getUnderIssue,
 };
