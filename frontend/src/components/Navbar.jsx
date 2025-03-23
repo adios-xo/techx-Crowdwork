@@ -11,10 +11,10 @@ const Navbar = () => {
 
     return (
         <nav className="flex justify-between items-center p-4 border-b shadow-sm">
-            <div className="text-xl font-bold">
+            <Link to={userToken ? "/home" : "/"} className="text-xl font-bold">
                 <span className="text-black">Community</span>
                 <span className="text-black font-bold">Force</span>
-            </div>
+            </Link>
             <div className="flex space-x-6">
                 <a href="#" className="text-black hover:underline">Projects</a>
                 <a href="#" className="text-black hover:underline">Organizations</a>
