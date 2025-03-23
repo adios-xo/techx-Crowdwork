@@ -1,5 +1,5 @@
 import React from "react";
-import { Twitter, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Twitter, Facebook, Instagram, Linkedin, Link } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <h2 className="text-xl font-bold mb-4">CommunityForce</h2>
             <p className="text-muted-foreground">
-              Connecting communities for social good since 2023.
+              Connecting communities for social good since 2025.
             </p>
           </div>
 
@@ -29,8 +29,11 @@ export default function Footer() {
           {/* Company Column */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <Link to="/About-Us">
+              About Us
+            </Link>
             <ul className="space-y-2">
-              <li><p className="text-muted-foreground">About Us</p></li>
+              <li>acb</li>
               <li><p className="text-muted-foreground">Contact</p></li>
               <li><p className="text-muted-foreground">Careers</p></li>
             </ul>

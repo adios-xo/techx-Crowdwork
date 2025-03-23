@@ -6,6 +6,11 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CreateIssue from "../pages/CreateIssue";
 import IssuePage from "../pages/IssuePage";
+import AboutUs from "../pages/AboutUs";
+import TermsOfService from "../pages/terms";
+import PrivacyPolicy from "../pages/privacy";
+import { Cookie } from "lucide-react";
+import CookiesPolicy from "../pages/cookies";
 import SignVolunteer from "../pages/forms/SignVolunteer";
 
 // Lazy-loaded components for better performance
@@ -34,6 +39,34 @@ const AppRoutes = () => {
                     <Route path="/register" element={
                         <>
                             <Register />
+                        </>
+                    } />
+                    <Route path="/About-Us" element={
+                        <>
+                            <Navbar />
+                            <AboutUs />
+                            <Footer />
+                        </>
+                    } />
+                    <Route path="/Terms" element={
+                        <>
+                            <Navbar />
+                            <TermsOfService />
+                            <Footer />
+                        </>
+                    } />
+                    <Route path="/privacy" element={
+                        <>
+                            <Navbar />
+                            <PrivacyPolicy />
+                            <Footer />
+                        </>
+                    } />
+                    <Route path="/cookies" element={
+                        <>
+                            <Navbar />
+                            <CookiesPolicy />
+                            <Footer />
                         </>
                     } />
                     {/* Protected Routes */}
