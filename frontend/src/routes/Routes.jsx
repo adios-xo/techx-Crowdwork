@@ -5,6 +5,7 @@ import Landing from "../pages/Landing";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CreateIssue from "../pages/CreateIssue";
+import AboutUs from "../pages/AboutUs";
 
 // Lazy-loaded components for better performance
 const Login = lazy(() => import("../pages/forms/Login"));
@@ -32,6 +33,13 @@ const AppRoutes = () => {
                     <Route path="/register" element={
                         <>
                             <Register />
+                        </>
+                    } />
+                    <Route path="/About-Us" element={
+                        <>
+                            <Navbar />
+                            <AboutUs />
+                            <Footer />
                         </>
                     } />
                     {/* Protected Routes */}
