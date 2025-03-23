@@ -7,6 +7,10 @@ import Footer from "../components/Footer";
 import CreateIssue from "../pages/CreateIssue";
 import IssuePage from "../pages/IssuePage";
 import AboutUs from "../pages/AboutUs";
+import TermsOfService from "../pages/terms";
+import PrivacyPolicy from "../pages/privacy";
+import { Cookie } from "lucide-react";
+import CookiesPolicy from "../pages/cookies";
 
 // Lazy-loaded components for better performance
 const Login = lazy(() => import("../pages/forms/Login"));
@@ -40,6 +44,27 @@ const AppRoutes = () => {
                         <>
                             <Navbar />
                             <AboutUs />
+                            <Footer />
+                        </>
+                    } />
+                       <Route path="/Terms" element={
+                        <>
+                            <Navbar />
+                            <TermsOfService />
+                            <Footer />
+                        </>
+                    } />
+                         <Route path="/privacy" element={
+                        <>
+                            <Navbar />
+                            <PrivacyPolicy />
+                            <Footer />
+                        </>
+                    } />
+                     <Route path="/cookies" element={
+                        <>
+                            <Navbar />
+                            <CookiesPolicy />
                             <Footer />
                         </>
                     } />
