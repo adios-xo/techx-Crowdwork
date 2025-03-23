@@ -80,7 +80,8 @@ const AppRoutes = () => {
                         <CreateIssue />
                     </ProtectedRoute>} />
 
-                    <Route path="/user" element={<ProtectedRoute>
+                    <Route path="/profile" element={<ProtectedRoute>
+                        <Navbar />
                         <Profile />
                     </ProtectedRoute>} />
 
