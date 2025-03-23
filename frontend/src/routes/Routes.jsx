@@ -5,6 +5,7 @@ import Landing from "../pages/Landing";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import CreateIssue from "../pages/CreateIssue";
+import IssuePage from "../pages/IssuePage";
 
 // Lazy-loaded components for better performance
 const Login = lazy(() => import("../pages/forms/Login"));
@@ -48,6 +49,15 @@ const AppRoutes = () => {
                     <Route path="/user" element={<ProtectedRoute>
                         <Profile />
                     </ProtectedRoute>} />
+
+                    <Route path="/issue" element={
+                        <>
+                            <ProtectedRoute>
+                                <Navbar />
+                                <IssuePage />
+                            </ProtectedRoute>
+                        </>
+                    } />
                 </Routes>
             </Suspense>
         </Router>
