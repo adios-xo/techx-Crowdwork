@@ -16,7 +16,7 @@ const IssueComponent = ({ issue }) => {
                         <h2 className="text-lg font-semibold">{issue.title}</h2>
                         <h2 className="text-sm scale-[0.975] bg-black text-white px-2 py-1 rounded-full">{issue.type}</h2>
                     </div>
-                    <p className="text-gray-600 truncate">{issue.desc}</p>
+                    <p className="text-gray-600 truncate w-[80%]]">{issue.desc}</p>
                 </div>
                 <div className="h-full flex flex-col gap-2">
                     <h2 className="text-sm bg-gray-200 text-gray-600 px-2 py-1 rounded-full">{issue.pin}</h2>
